@@ -1,0 +1,60 @@
+<div class="foods-container">
+  <h2>Foods List</h2>
+  <button class="add-food-btn" (click)="openAddFoodModal()">Add Food</button>
+
+  <table class="foods-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Calories</th>
+        <th>Proteins</th>
+        <th>Carbs</th>
+        <th>Fats</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let food of foods">
+        <td>{{ food.name }}</td>
+        <td>{{ food.calories }}</td>
+        <td>{{ food.proteins }}</td>
+        <td>{{ food.carbs }}</td>
+        <td>{{ food.fats }}</td>
+        <td>
+          <button class="edit-btn" (click)="openEditFoodModal(food)">Edit</button>
+          <button class="delete-btn" (click)="deleteFood(food.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="modal" *ngIf="openModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>{{ isEditing ? 'Edit Food' : 'Add Food' }}</h3>
+      </div>
+      <div class="modal-body">
+        <label for="name">Name</label>
+        <input type="text" [(ngModel)]="selectedFood.name" id="name" />
+
+        <label for="calories">Calories</label>
+        <input type="number" [(ngModel)]="selectedFood.calories" id="calories" />
+
+        <label for="proteins">Proteins</label>
+        <input type="number" [(ngModel)]="selectedFood.proteins" id="proteins" />
+
+        <label for="carbs">Carbs</label>
+        <input type="number" [(ngModel)]="selectedFood.carbs" id="carbs" />
+
+        <label for="fats">Fats</label>
+        <input type="number" [(ngModel)]="selectedFood.fats" id="fats" />
+      </div>
+      <div class="modal-footer">
+        <button (click)="isEditing ? updateFood() : addFood()">
+          {{ isEditing ? 'Update' : 'Add' }}
+        </button>
+        <button (click)="exit()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

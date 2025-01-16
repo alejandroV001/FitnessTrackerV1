@@ -1,0 +1,39 @@
+<div class="muscle-group-list">
+  <h2>Muscle Groups</h2>
+  <table class="muscle-groups-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let muscleGroup of muscleGroups">
+        <td>{{ muscleGroup.name }}</td>
+        <td>
+          <button class="edit-btn" (click)="openEditMuscleGroupModal(muscleGroup)">Edit</button>
+          <button class="delete-btn" (click)="deleteMuscleGroup(muscleGroup.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="add-muscle-group-btn" (click)="openAddMuscleGroupModal()">Add Muscle Group</button>
+</div>
+
+<div class="modal" *ngIf="isModalOpen">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>{{ isEditing ? 'Edit Muscle Group' : 'Add Muscle Group' }}</h3>
+    </div>
+    <div class="modal-body">
+      <label for="muscleGroupName">Name</label>
+      <input type="text" [(ngModel)]="selectedMuscleGroup.name" id="muscleGroupName" />
+    </div>
+    <div class="modal-footer">
+      <button (click)="isEditing ? updateMuscleGroup() : addMuscleGroup()">
+        {{ isEditing ? 'Update' : 'Add' }}
+      </button>
+      <button (click)="closeModal()">Cancel</button>
+    </div>
+  </div>
+</div>

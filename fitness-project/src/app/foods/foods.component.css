@@ -1,0 +1,128 @@
+.foods-container {
+  padding: 20px;
+}
+
+.add-food-btn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.add-food-btn:hover {
+  background-color: #2980b9;
+}
+
+/* Stiluri pentru tabel */
+.foods-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.foods-table th, .foods-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.foods-table th {
+  background-color: #3498db;
+  color: white;
+}
+
+.foods-table td {
+  background-color: #f9f9f9;
+}
+
+.foods-table td button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.foods-table td button:hover {
+  background-color: #2980b9;
+}
+
+.foods-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.modal {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.modal-body {
+  margin-top: 20px;
+}
+
+.modal-body label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.modal-body input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.modal-footer button {
+  background-color: #3498db;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal-footer button:hover {
+  background-color: #2980b9;
+}
+
+.modal-footer button:last-child {
+  background-color: #e74c3c;
+}
+
+.modal-footer button:last-child:hover {
+  background-color: #c0392b;
+}
