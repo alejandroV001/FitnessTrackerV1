@@ -1,0 +1,64 @@
+services:
+  userservice:
+    image: ${DOCKER_REGISTRY-}userservice
+    build:
+      context: .
+      dockerfile: UserService/Dockerfile
+    ports:
+      - "5000:5000"
+      - "5001:5001"
+
+  userservice-db:
+    image: postgres:latest
+    container_name: userservice-db
+    environment:
+      - POSTGRES_DB=users
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./.containers/users-db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
+  workoutservice:
+    image: ${DOCKER_REGISTRY-}workoutservice
+    build:
+      context: .
+      dockerfile: WorkoutService/Dockerfile
+    ports:
+      - "5002:5002"
+      - "5003:5003"
+
+  workoutservice-db:
+    image: postgres:latest
+    container_name: workoutservice-db
+    environment:
+      - POSTGRES_DB=workouts
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./.containers/workouts-db:/var/lib/postgresql/data
+    ports:
+      - 5433:5432
+
+  foodservice:
+    image: ${DOCKER_REGISTRY-}foodservice
+    build:
+      context: .
+      dockerfile: FoodService/Dockerfile
+    ports:
+      - "5004:5004"
+      - "5005:5005"
+
+  foodservice-db:
+    image: postgres:latest
+    container_name: foodservice-db
+    environment:
+      - POSTGRES_DB=foods
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./.containers/foods-db:/var/lib/postgresql/data
+    ports:
+      - 5434:5432
+
